@@ -1,0 +1,17 @@
+{
+  "name": "myfirstlearningtesttoken",
+  "version": "1.0.0",
+  "description": "This is a test project to create a test token for learning purpose",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "openzeppelin-solidity": "^4.5.0"
+  }
+}
