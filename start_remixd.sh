@@ -9,3 +9,7 @@ sleep 1s
 
 tmux new-session -d -s "browserIde"
 tmux send-keys -t "browserIde" "xdg-open $REMIX_IDE" Enter
+
+sleep 1s
+
+gnome-terminal --working-directory=$LOCAL_DIR
