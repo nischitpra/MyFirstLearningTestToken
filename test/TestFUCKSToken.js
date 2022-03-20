@@ -15,14 +15,10 @@ contract("test_FUCKSToken", async (accounts) => {
     const acc1_balance = (await fucks.balanceOf(accounts[1])).toNumber();
 
     const res = await fucks.transfer(accounts[1], tokens, { from: accounts[0] });
-    console.log("isSuccess", res.receipt.status);
     assert.equal(res.receipt.status, true, "could not transfer tokens");
 
     const acc0_balance_new = (await fucks.balanceOf(accounts[0])).toNumber();
     const acc1_balance_new = (await fucks.balanceOf(accounts[1])).toNumber();
-
-    console.log("0", acc0_balance - tokens, acc0_balance, acc0_balance_new);
-    console.log("1", acc1_balance + tokens, acc1_balance, acc1_balance_new);
 
     assert.equal(acc0_balance_new, acc0_balance - tokens, "acc 0 balance is not correctly deducted");
     assert.equal(acc1_balance_new, acc1_balance + tokens, "acc 1 balance is not correctly added");
