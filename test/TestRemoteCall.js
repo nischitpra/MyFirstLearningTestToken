@@ -5,9 +5,10 @@ contract("test_RemoteCall", async (accounts) => {
   it("insert to list from mappingTest", async () => {
     const mappingTest = await MappingTest.deployed();
     const itemsSize = (await mappingTest.itemsSize()).toNumber();
-    
-    await mappingTest.addItem("hello from mappingTest test", { gas: 100000 });
-    
+
+    const res = await mappingTest.addItem("hello from mappingTest test", { gas: 100000 });
+    assert.equal(res.receipt.logs[0].event, "Added", "emit event not matching");
+
     assert.equal((await mappingTest.itemsSize()).toNumber(), itemsSize + 1, "item not inserted correctly");
   });
 

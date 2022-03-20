@@ -21,11 +21,12 @@ contract MappingTest {
 
     FUCKSToken public FucksToken;
 
+    event Added(address client, string item);
+
     constructor(address _FucksToken) {
         FucksToken = FUCKSToken(_FucksToken);
     }
 
-    
     function itemsSizePrivileged() public view returns (uint256) {
         require(
             FucksToken.balanceOf(msg.sender) >= 200000,
@@ -48,6 +49,7 @@ contract MappingTest {
         require(!compareString(item, ""), "item cannot be empty");
         items.push(item);
         gasprice = tx.gasprice;
+        emit Added(msg.sender, item);
     }
 
     function itemsSize() public view returns (uint256) {
