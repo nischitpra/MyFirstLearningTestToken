@@ -50,7 +50,7 @@ interface Token {
     );
 }
 
-contract TokenERC20Template is Token {
+contract TokenECR20Template is Token {
     uint256 private constant MAX_UINT256 = 2**256 - 1;
     mapping(address => uint256) public balances;
     mapping(address => mapping(address => uint256)) public allowed;
@@ -140,3 +140,4 @@ contract TokenERC20Template is Token {
         return allowed[_owner][_spender];
     }
 }
+

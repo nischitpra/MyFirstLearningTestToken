@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.5.0 <0.9.0;
 
-import "./TokenERC20Template.sol";
+import "./TokenECR20Template.sol";
 
 contract CustomToken{
     
@@ -34,7 +34,8 @@ contract CustomToken{
     ) public returns(address) {
         require(_initialAmount > 10**_decimalUnits,"Invalid Initial Amount or Decimal Units");
 
-        TokenERC20Template token = new TokenERC20Template(_initialAmount, _tokenName, _decimalUnits, _tokenSymbol);
+        TokenECR20Template token = new TokenECR20Template(_initialAmount, _tokenName, _decimalUnits, _tokenSymbol);
+	token.transfer(msg.sender, _initialAmount);
         address tokenAddress = address(token);
         
         // track tokens created by user
@@ -48,3 +49,4 @@ contract CustomToken{
     }
 
 }
+
